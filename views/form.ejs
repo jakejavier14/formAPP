@@ -1,0 +1,33 @@
+<h2>Register New User</h2>
+
+<form method="POST" action="/register">
+    <label>Full Name</label>
+    <input type="text" name="name" value="<%= old ? old.name : '' %>">
+    <% if (errors && errors.find(e => e.path === 'name')) { %>
+        <p class="error"><%= errors.find(e => e.path === 'name').msg %></p>
+    <% } %>
+
+    <label>Email Address</label>
+    <input type="email" name="email" value="<%= old ? old.email : '' %>">
+    <% if (errors && errors.find(e => e.path === 'email')) { %>
+        <p class="error"><%= errors.find(e => e.path === 'email').msg %></p>
+    <% } %>
+
+    <label>Password</label>
+    <input type="password" name="password">
+    <% if (errors && errors.find(e => e.path === 'password')) { %>
+        <p class="error"><%= errors.find(e => e.path === 'password').msg %></p>
+    <% } %>
+
+    <label>Confirm Password</label>
+    <input type="password" name="confirmPassword">
+    <% if (errors && errors.find(e => e.path === 'confirmPassword')) { %>
+        <p class="error"><%= errors.find(e => e.path === 'confirmPassword').msg %></p>
+    <% } %>
+
+    <button type="submit">Register</button>
+</form>
+
+<p style="text-align:center; margin-top:20px;">
+    <a href="/">← Back to Home</a>
+</p>
